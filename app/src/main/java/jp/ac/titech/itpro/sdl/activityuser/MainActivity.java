@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private final static int MYREQCODE = 1234;
@@ -39,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
 //        intent.setClassName("jp.ac.titech.itpro.sdl.activityprovider",
 //                "jp.ac.titech.itpro.sdl.activityprovider.PublicActivity");
         intent.putExtra("request", request);
-        startActivityForResult(intent, MYREQCODE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, MYREQCODE);
+        } else {
+            Toast.makeText(this, "No activity returned", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
