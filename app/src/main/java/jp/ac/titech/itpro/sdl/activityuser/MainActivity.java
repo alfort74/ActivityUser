@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 request = getString(R.string.request_3_text);
                 break;
         }
-        Intent intent = new Intent();
-        intent.setClassName("jp.ac.titech.itpro.sdl.activityprovider",
-                "jp.ac.titech.itpro.sdl.activityprovider.PublicActivity");
+      Intent intent = new Intent("android.intent.action.IMPLICIT");
+//        intent.setClassName("jp.ac.titech.itpro.sdl.activityprovider",
+//                "jp.ac.titech.itpro.sdl.activityprovider.PublicActivity");
         intent.putExtra("request", request);
         startActivityForResult(intent, MYREQCODE);
     }
